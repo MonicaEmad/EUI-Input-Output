@@ -1,3 +1,22 @@
+<!-- <table class="table">
+    <thead>
+        <tr>
+            <td>name</td>
+            <td>age</td>
+            <td>salary</td>
+        </tr>
+    </thead>
+    <tbody>
 
-
-
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.salary}}</td>
+        </tr>
+    </tbody>
+</table> -->
+ <div class="container row">
+    <div class="col-md-3 my-3" *ngFor="let recipe of recipes">
+        <app-card [id]="recipe.recipe_id" [title]="recipe.title " [imgSrc]="recipe.image_url" (handleEvent)="navigateToDetails()" [btnText]="'Show More details'" ></app-card>
+    </div>
+ </div>
