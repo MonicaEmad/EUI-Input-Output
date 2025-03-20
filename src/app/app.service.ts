@@ -23,9 +23,10 @@ export class AppService {
         return this.http.get(this.url);
     }
 
-    
+
     getRecipeDetails(id: string) {
         const url = `https://forkify-api.herokuapp.com/api/get?rId=${id}`;
         return this.http.get(url);
     }
+    isLogged:boolean =false;
 }

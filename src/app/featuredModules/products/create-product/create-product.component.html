@@ -1,0 +1,34 @@
+<form [formGroup]="profileData" (ngSubmit)="submitForm()">
+    <label for="">Name</label>
+    <input formControlName="name" type="text">
+
+        <div class="" *ngIf="f.name.errors && f.name.dirty && f.name.touched">
+            <p *ngIf='f.name.errors.required'>This field is required</p>
+            <p *ngIf="f.name.errors.minlength">Min Length is 5 chars</p>
+    </div>
+
+
+    <label for="">Email</label>
+    <input  formControlName="email" type="email">
+    <div *ngIf="f.email.errors && f.email.dirty && f.email.touched">
+        <p *ngIf="f.email.errors.required">This field is required</p>
+        <p *ngIf="f.email.errors.email">Type a correct email</p>
+    </div>
+    <br>
+
+    <label for="salary">Salary</label>
+    <br>
+    <input formControlName="salary" type="text">
+    <br>
+
+    <div formGroupName="address">
+        <label for="city">City</label>
+        <input formControlName="city" type="text">
+        <br>
+        <label for="street">Street</label>
+        <input formControlName="street" type="text">
+    </div>
+
+    <button type="button" (click)="updateInput()">Update Value</button>
+    <button type="submit" class="btn btn-primary" [disabled]="profileData.invalid">Submit</button>
+</form> 
