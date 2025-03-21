@@ -37,9 +37,13 @@ export class CreateProductComponent implements OnInit {
             email: ['', [Validators.required, Validators.email]],
             salary: ['', [Validators.maxLength(10)]],
             address: this.fb.group({
-                city: [''],
-                street: ['']
+                city: ['',Validators.required],
+                street: ['',Validators.required]
             })
         });
+    }
+
+    isFieldInvalid(field: string) {
+        return this.f[field].invalid && (this.f[field].dirty || this.f[field].touched);
     }
 }
